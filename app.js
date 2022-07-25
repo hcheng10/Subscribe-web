@@ -33,11 +33,11 @@ app.post("/", function(req, res) {
   var jsonData = JSON.stringify(data);
 
   // https.get() is to get data from api provider, https.request() is to send data to api provider
-  const url = "https://us9.api.mailchimp.com/3.0/lists/715b632c95";
+  const url = "https://us9.api.mailchimp.com/3.0/lists/{list id}}";
 
   const options = {
     method: "POST",
-    auth: "HC:3fa92c9afc0c0e636b12f9c395a11b5b-us9"
+    auth: "HC:{api key}"
   }
 
   const request = https.request(url, options, function(response) {
@@ -64,10 +64,3 @@ app.post("/failure", function(req, res) {
 app.listen(process.env.PORT || 3000, function(){ // 3000(local host) || process.env.PORT(for heroku to get a dynamic port)
   console.log("Serever is running on port 3000");
 });
-
-// mailchimp
-// API Key
-// 3fa92c9afc0c0e636b12f9c395a11b5b-us9
-
-// List Id
-// 715b632c95
